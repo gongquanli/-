@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			#haimian {
+				position: absolute;
+				/*绝对定位*/
+				width: 300px;
+				height: 200px;
+				/*我的是图片太大 ,设置图片的大小*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<img src="img/4.jpg" id="haimian" />
+
+		<!--//鼠标-->
+		<script>
+			function DivFlying() {
+				var baobao = document.getElementById("haimian");
+				if(!baobao) { return; }
+				//  window.event 事件对象的状态
+				var intX = window.event.clientX;
+				var intY = window.event.clientY;
+				baobao.style.left = intX + "px";
+				baobao.style.top = intY + "px";
+			}
+			document.onmousemove = DivFlying;
+		</script>
+
+		<!--	//键盘-->
+		<script>
+			var x = 0;
+			var y = 0;
+			document.onkeydown = function(e) {
+				console.log(e.keyCode);
+				//上 38
+				//下 40
+				//左 37
+				//右 39
+				if(e.keyCode == 38) {
+					y = y - 10;
+				}
+				if(e.keyCode == 40) {
+					y = y + 10;
+				}
+				if(e.keyCode == 37) {
+					x = x - 10;
+				}
+				if(e.keyCode == 39) {
+					x = x + 10;
+				}
+				var baobao = document.getElementById("haimian");
+				baobao.style.top = y + "px";
+				baobao.style.left = x + "px";
+
+			}
+		</script>
+	</body>
+
+</html>
